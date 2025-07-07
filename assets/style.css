@@ -97,7 +97,7 @@ embed {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
@@ -110,10 +110,22 @@ embed {
   text-align: center;
   z-index: 2;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* optional: improves readability */
+  backdrop-filter: blur(2px); /* adds blur behind the text */
 }
 
 .banner-text h1,
 .banner-text p {
   color: white; /* 👈 makes both title and paragraph white */
+
+  
 }
 
+.banner-text h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.banner-text p {
+  font-size: 18px;
+  font-weight: 400;
+}
