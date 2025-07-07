@@ -14,12 +14,16 @@
 <body>
 
   <div class="banner-container">
-    <img src="images/banner.png" alt="Banner" class="banner" />
+    <img id="rotating-banner" src="images/banner_1.jpg" alt="Banner" class="banner" />
     <div class="banner-overlay"></div>
     <div class="banner-text">
       <h1>Paulo Mendoza</h1>
-      <p>Computer Engineering graduate seeking roles as an AI Developer or Data Scientist.</p>
+      <p><span id="typed-text"></span><span class="cursor">|</span></p>
     </div>
+  </div>
+
+  <div class="intro-text">
+  <p>Computer Engineering graduate seeking roles as an AI Developer or Data Scientist.</p>
   </div>
 
   <section class="section">
@@ -100,6 +104,9 @@
 
     <p style="margin-top: 20px; font-size: 14px;">&copy; Made by Paulo Mendoza</p>
   </footer>
+
+  <script src="assets/banner-rotator.js"></script>
+  <script src="assets/typing-effect.js"></script>
 
 </body>
 

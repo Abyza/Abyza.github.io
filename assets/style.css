@@ -8,8 +8,12 @@ body {
 
 .section {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: 10px auto 0;
+  padding: 20px;
+}
+
+.section h2 {
+  margin-top: 0px;
 }
 
 h1, h2, h3 {
@@ -89,6 +93,7 @@ embed {
   object-fit: contain; /* ensures the image is fully shown */
   display: block;
   background-color: black;
+  transition: opacity 1s ease-in-out;
 }
 
 .banner-overlay {
@@ -126,4 +131,27 @@ embed {
 .banner-text p {
   font-size: 18px;
   font-weight: 400;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace; /* optional for typing effect */
+  white-space: nowrap;
 }
+
+.cursor {
+  display: inline-block;
+  width: auto;
+  animation: blink 0.7s steps(1) infinite;
+  color: white;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.intro-text {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 0;
+  padding: 10px 20px;
+}
+
