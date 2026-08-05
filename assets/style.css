@@ -5,12 +5,16 @@
 
 :root {
   --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --bg-dark: #090d16;
+  --bg-dark: #080f1e;                   /* Rich deep navy blue */
   --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(234, 179, 8, 0.2);/* Subtle warm gold glass border */
   --glass-hover: rgba(255, 255, 255, 0.09);
-  --primary-glow: #3b82f6;
-  --accent-glow: #8b5cf6;
+  
+  /* Brand Glow Colors */
+  --primary-glow: #1d4ed8;               /* Vibrant Royal Blue */
+  --accent-glow: #eab308;                /* Glowing Amber / Gold */
+  --gold-accent: #fde047;                /* Bright Highlight Gold */
+  
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --card-radius: 20px;
@@ -28,49 +32,64 @@ html {
 }
 
 body {
-  font-family: var(--font-family);
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  line-height: 1.6;
-  overflow-x: hidden;
-  position: relative;
+  background-color: #060b19 !important; /* Deepest midnight navy */
+  color: #f8fafc;
   min-height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Background Animated Blobs */
+/* 2. Direct Background Gradient Glows (Replaces Violet) */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.45) 0%, rgba(6, 11, 25, 0) 70%); /* Royal Blue Glow */
+  z-index: -2;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -10%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(234, 179, 8, 0.35) 0%, rgba(6, 11, 25, 0) 70%); /* Warm Gold Glow */
+  z-index: -2;
+  pointer-events: none;
+}
+
+
+/* Background Ambient Glow Spheres */
 .blob {
   position: fixed;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(110px);
   z-index: -1;
   opacity: 0.35;
   animation: float 18s ease-in-out infinite alternate;
 }
 
+/* 3. If you use .blob elements in HTML, update their direct backgrounds */
 .blob-1 {
-  width: 450px;
-  height: 450px;
-  background: var(--primary-glow);
-  top: -100px;
-  left: -100px;
+  background: #1d4ed8 !important; /* Royal Blue */
+  opacity: 0.35 !important;
 }
 
 .blob-2 {
-  width: 500px;
-  height: 500px;
-  background: var(--accent-glow);
-  bottom: 10%;
-  right: -100px;
-  animation-delay: -5s;
+  background: #eab308 !important; /* Warm Gold */
+  opacity: 0.30 !important;
 }
 
 .blob-3 {
-  width: 350px;
-  height: 350px;
-  background: #06b6d4;
-  top: 45%;
-  left: 20%;
-  animation-delay: -10s;
+  background: #0284c7 !important; /* Accent Light Blue */
+  opacity: 0.25 !important;
 }
 
 @keyframes float {
@@ -78,16 +97,7 @@ body {
   100% { transform: translate(60px, 80px) scale(1.1); }
 }
 
-/* Glassmorphism Common Base Class */
-.glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--card-radius);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+
 
 /* Glass Navigation Bar */
 .glass-nav {
@@ -120,7 +130,7 @@ body {
 }
 
 .logo span {
-  color: #38bdf8;
+  color: var(--gold-accent);
 }
 
 .nav-links {
@@ -192,17 +202,9 @@ body {
 }
 
 .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(56, 189, 248, 0.1);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  width: fit-content;
+  background: rgba(234, 179, 8, 0.12);
+  color: var(--gold-accent);
+  border: 1px solid rgba(234, 179, 8, 0.3);
 }
 
 .hero-content h1 {
@@ -212,9 +214,7 @@ body {
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #38bdf8;
+  color: var(--gold-accent);
 }
 
 .cursor {
@@ -247,16 +247,19 @@ body {
   transition: all 0.25s ease;
 }
 
+/* Blue & Gold Primary Action Button */
 .btn-primary {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: white;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: #ffffff;
+  border: 1px solid rgba(254, 240, 138, 0.3);
+  box-shadow: 0 4px 20px rgba(29, 78, 216, 0.4);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+  box-shadow: 0 6px 24px rgba(234, 179, 8, 0.4); /* Glowing Gold hover shadow */
 }
+
+
 
 .btn-secondary {
   background: rgba(255, 255, 255, 0.05);
@@ -336,14 +339,11 @@ body {
   gap: 8px;
 }
 
+/* Tags in Gold/Blue Tint */
 .tag {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 3px 10px;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  color: #93c5fd;
-  font-weight: 500;
+  background: rgba(234, 179, 8, 0.08);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  color: #fef08a;
 }
 
 .project-content h3 {
@@ -616,6 +616,53 @@ body {
   font-size: 0.85rem;
 }
 
+/* Container layout for highlight cards */
+.highlights-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Blue to Gold hover styling for all highlight cards */
+#highlights .glass-card,
+.highlight-banner {
+  border-left: 4px solid #1d4ed8 !important; /* Royal Blue */
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#highlights .glass-card:hover,
+.highlight-banner:hover {
+  border-left-color: #eab308 !important; /* Warm Gold */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(234, 179, 8, 0.25) !important;
+}
+
+/* Badge styling variations for events and hackathons */
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(234, 179, 8, 0.12);
+  color: #fde047;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.highlight-badge.badge-event {
+  background: rgba(29, 78, 216, 0.15);
+  color: #60a5fa;
+  border-color: rgba(29, 78, 216, 0.3);
+}
+
+.highlight-badge.badge-hackathon {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.3);
+}
 
 /* ==========================================================================
    Responsive Glassmorphism UI Theme
@@ -707,6 +754,22 @@ body {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
+#highlights .glass-card,
+.highlight-banner {
+  border-left: 4px solid #1d4ed8 !important; /* Royal Blue left border */
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover state: switches ONLY this card's left border to Gold */
+#highlights .glass-card:hover,
+.highlight-banner:hover {
+  border-left-color: #eab308 !important; /* Warm Gold left border on hover */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(234, 179, 8, 0.25) !important; /* Gold glow */
+}
+
 
 /* Glass Navigation Bar */
 .glass-nav {
