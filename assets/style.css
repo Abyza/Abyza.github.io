@@ -1348,3 +1348,60 @@ body {
     max-height: 220px !important;
   }
 }
+
+
+/* Custom Video Preview Card */
+.custom-video-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.custom-video-card:hover .video-thumbnail {
+  transform: scale(1.03); /* Subtle zoom effect */
+}
+
+/* Custom Play Button Overlay */
+.play-button-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 15, 30, 0.4); /* Dark blue overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+/* Custom Gold Play Button (Replaces YouTube Red) */
+.play-btn {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #eab308, #ca8a04); /* Warm Gold */
+  color: #080f1e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding-left: 4px; /* Optical alignment for play triangle */
+  box-shadow: 0 0 25px rgba(234, 179, 8, 0.6);
+  transition: all 0.3s ease;
+}
+
+.custom-video-card:hover .play-btn {
+  transform: scale(1.15);
+  box-shadow: 0 0 35px rgba(234, 179, 8, 0.9);
+  background: linear-gradient(135deg, #fde047, #eab308); /* Brighter gold on hover */
+}
