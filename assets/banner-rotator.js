@@ -7,22 +7,12 @@ const bannerImages = [
 let currentBannerIndex = 0;
 const bannerElement = document.getElementById('rotating-banner');
 
-if (bannerElement) {
-  // Preload images to avoid flickers
-  bannerImages.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
+setInterval(() => {
+  bannerElement.style.opacity = 0;
 
-  setInterval(() => {
-    // Fade out
-    bannerElement.style.opacity = '0';
-
-    setTimeout(() => {
-      currentBannerIndex = (currentBannerIndex + 1) % bannerImages.length;
-      bannerElement.src = bannerImages[currentBannerIndex];
-      // Fade back in
-      bannerElement.style.opacity = '1';
-    }, 1000);
-  }, 5000);
-}
+  setTimeout(() => {
+    currentBannerIndex = (currentBannerIndex + 1) % bannerImages.length;
+    bannerElement.src = bannerImages[currentBannerIndex];
+    bannerElement.style.opacity = 1;
+  }, 1000); // matches the CSS transition
+}, 4000);

@@ -2,330 +2,151 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
+  <!-- Prevent caching of this HTML -->
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#007BFF" />
   <meta name="description" content="Paulo Mendoza's personal website featuring his resume and portfolio of AI, data science, and engineering projects." />
-  <title>Paulo Mendoza | AI Developer & Data Scientist</title>
-
-  <!-- Google Fonts & Font Awesome -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <title>Paulo Mendoza | Personal Website</title>
   <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- Ambient Glowing Glass Spheres -->
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-
-  <!-- Navigation Bar -->
-  <nav class="glass-nav">
-    <div class="nav-container">
-      <a href="#" class="logo">Abyza<span>.github.io</span></a>
-      <div class="nav-links">
-        <a href="#contact">Contact</a>
-      </div>
+  <div class="banner-container">
+    <img id="rotating-banner" src="images/banner_1.jpg" alt="Banner" class="banner" />
+    <div class="banner-overlay"></div>
+    <div class="banner-text">
+      <h1>Paulo Mendoza</h1>
+      <p><span id="typed-text"></span><span class="cursor">|</span></p>
     </div>
-  </nav>
-
-  <!-- Hero / Banner Section -->
-  <header class="hero-section" id="about">
-    <div class="glass-card hero-card">
-      <div class="hero-image-wrapper">
-        <img id="rotating-banner" src="images/banner_1.jpg" alt="Paulo Mendoza Banner" class="banner" />
-        <div class="banner-overlay"></div>
-      </div>
-      <div class="hero-content">
-        <span class="badge"><i class="fas fa-sparkles"></i> Portfolio</span>
-        <h1>Paulo Mendoza</h1>
-        <p class="subtitle"><span id="typed-text">AI Developer</span><span class="cursor">|</span></p>
-        <p class="bio">
-          Computer Engineer specializing in AI development, Retrieval-Augmented Generation (RAG), dynamic agent architectures, and machine learning solutions.
-        </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
-          <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Get in Touch</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Content: Projects Section -->
-  <main class="container" id="projects">
-    <div class="section-header">
-      <h2>Featured Projects</h2>
-      <p>Explorations in AI, Deep Learning, Quantum Computing, and Computer Vision</p>
-    </div>
-
-    <div class="projects-grid">
-
-
-
-      <!-- Project 8 -->
-      <article class="glass-card project-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/6YC2QqGi5no" title="InstantRX Demo" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag">Qwen AI</span>
-            <span class="tag">Alibaba Cloud</span>
-            <span class="tag">Voice-to-Text</span>
-          </div>
-          <h3>Project 8: InstantRX – Just Say It!</h3>
-          <p>Leverages Qwen AI and Alibaba Cloud’s elastic infrastructure to process spoken input. Converts voice instructions into properly formatted, ready-to-issue prescriptions to ensure compliance and minimize human error.</p>
-        </div>
-      </article>
-
-      <!-- Project 7 -->
-      <article class="glass-card project-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/feFimLA16OY" title="NASA Bioscience Chatbot Demo" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag">LangChain</span>
-            <span class="tag">OpenAI</span>
-            <span class="tag">RAG</span>
-            <span class="tag">Streamlit</span>
-          </div>
-          <h3>Project 7: NASA Bioscience Chatbot</h3>
-          <p>Utilizes LangChain, OpenAI API, and RAG to search a curated dataset of 608 full-text NASA Space Biology publications, retrieving accurate citation-backed responses in an interactive Streamlit UI.</p>
-        </div>
-      </article>
-
-      <!-- Project 6 -->
-      <article class="glass-card project-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/8jLATxaVkT0" title="A.I. Image Generator Demo" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag">React</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">Stable Diffusion</span>
-          </div>
-          <h3>Project 6: A.I. Image Generator</h3>
-          <p>Built with React and FastAPI leveraging Stable Diffusion. Supports text-to-image synthesis, interactive canvas brushing, and targeted inpainting/editing on user-selected regions.</p>
-        </div>
-      </article>
-
-      <!-- Project 5 -->
-      <article class="glass-card project-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/Hu5XuXgEx1g" title="Princess Cruise Lines A.I. Assistant" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag">LangGraph</span>
-            <span class="tag">Multi-Agent</span>
-            <span class="tag">AWS</span>
-            <span class="tag">FastAPI</span>
-          </div>
-          <h3>Project 5: Princess Cruise Lines AI Assistant</h3>
-          <p>Multi-agent and multi-tool system built with LangGraph and OpenAI. Features voice interactions (TTS/STT), reservation management, token cost tracking, and AWS deployment.</p>
-        </div>
-      </article>
-
-      <!-- Project 4 -->
-      <article class="glass-card project-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/LY3f-NUtTx8" title="AI Agent Creator Demo" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag">LangChain</span>
-            <span class="tag">LangGraph</span>
-            <span class="tag">Streamlit</span>
-          </div>
-          <h3>Project 4: AI Agent Creator</h3>
-          <p>Developed during OJT at Lightweight Solutions R&D. Multi-agent chatbot platform featuring document ingestion pipelines, contextual Q&A, and hybrid local/OpenAI LLM routing.</p>
-        </div>
-      </article>
-
-      <!-- Project 3 -->
-      <article class="glass-card project-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/eZuUhFej09k" title="AlgSat Demo" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag">Deep Learning</span>
-            <span class="tag">Satellite Data</span>
-            <span class="tag">Digital Twin</span>
-          </div>
-          <h3>Project 3: AlgSat</h3>
-          <p>Computer Engineering capstone with the Laguna Lake Development Authority. A digital twin web app predicting water quality and algal blooms using satellite imagery and deep learning models.</p>
-        </div>
-      </article>
-
-      <!-- Project 2 -->
-      <article class="glass-card project-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/_SPXa0uFGiU" title="Exercise Posture AI App Demo" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag">Unity</span>
-            <span class="tag">Computer Vision</span>
-            <span class="tag">Pose Detection</span>
-          </div>
-          <h3>Project 2: Exercise Posture AI App</h3>
-          <p>Unity-based computer vision application utilizing real-time pose estimation to analyze exercise technique and deliver instant posture correction feedback.</p>
-        </div>
-      </article>
-
-      <!-- Project 1 -->
-      <article class="glass-card project-card">
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/VIv7oZNR510" title="Quantum Circuit Simulator Demo" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="project-content">
-          <div class="project-tags">
-            <span class="tag">Qiskit</span>
-            <span class="tag">Python</span>
-            <span class="tag">Unity</span>
-            <span class="tag">Quantum</span>
-          </div>
-          <h3>Project 1: Quantum Circuit Simulator</h3>
-          <p>Combines a Unity frontend with a Qiskit Python backend for real-time quantum circuit simulation, complete with interactive sandbox mode for custom quantum gate testing.</p>
-        </div>
-      </article>
-
-    </div>
-  </main>
-
-
-<!-- Highlights & Achievements Section -->
-<section class="container" id="highlights">
-  <div class="section-header">
-    <h2>Achievements & Representation</h2>
-    <p>National competitions, corporate events, and public technical presentations</p>
   </div>
 
-  <div class="highlights-grid">
-
-    <!-- 1. Microsoft Imagine Cup -->
-    <div class="glass-card highlight-banner">
-      <div class="highlight-badge">
-        <i class="fas fa-trophy"></i> 3rd Place — Microsoft Imagine Cup
-      </div>
-      
-      <div class="highlight-body">
-        <h3>Microsoft Imagine Cup 2023 National Finals</h3>
-        <p class="highlight-meta">
-          <span><i class="fas fa-users"></i> Team PNC</span> &bull; 
-          <span><i class="fas fa-mobile-alt"></i> Exerbit: Exercise Habit Building App</span>
-        </p>
-        <p>
-          Represented our team and institution in the Microsoft Imagine Cup Philippines National Finals, placing <strong>3rd Place</strong>. We built <strong>Exerbit</strong>, a gamified habit-building mobile app leveraging machine learning to solve physical inactivity gaps.
-        </p>
-        
-        <a href="https://www.linkedin.com/posts/matiraneal_machinelearning-project-microsoft-activity-7041416971816484865-GTNh?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjnLb0BjhLU48hq1GnmiL7e1903h9eIoGI" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="btn btn-secondary btn-sm">
-          <i class="fab fa-linkedin"></i> View Announcement on LinkedIn <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-
-    <!-- 2. Radenta Technologies / Vantiq Presentation -->
-    <div class="glass-card highlight-banner">
-      <div class="highlight-badge badge-event">
-        <i class="fas fa-bullhorn"></i> Industry Feature — Radenta Technologies
-      </div>
-      
-      <div class="highlight-body">
-        <h3>Vantiq & PHAPI 2025 Tech Event</h3>
-        <p class="highlight-meta">
-          <span><i class="fas fa-building"></i> Radenta Technologies Inc.</span> &bull; 
-          <span><i class="fas fa-microchip"></i> Real-Time AI Systems & Vantiq</span>
-        </p>
-        <p>
-          Featured by <strong>Radenta Technologies Inc.</strong> in collaboration with Vantiq and PHAPI 2025, highlighting innovation in event-driven real-time applications and enterprise software architecture.
-        </p>
-        
-        <a href="https://www.linkedin.com/posts/radenta-technologies-inc%2E_radentatechnologies-vantiq-phapi2025-activity-7395998031902511105-V9l7?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjnLb0BjhLU48hq1GnmiL7e1903h9eIoGI" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="btn btn-secondary btn-sm">
-          <i class="fab fa-linkedin"></i> View Post on LinkedIn <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-
-    <!-- 3. Alibaba Cloud Hackathon -->
-    <div class="glass-card highlight-banner">
-      <div class="highlight-badge badge-hackathon">
-        <i class="fas fa-laptop-code"></i> AI Competition — Alibaba Cloud
-      </div>
-      
-      <div class="highlight-body">
-        <h3>Alibaba Cloud Philippines AI Hackathon 2025</h3>
-        <p class="highlight-meta">
-          <span><i class="fas fa-cloud"></i> Alibaba Cloud</span> &bull; 
-          <span><i class="fas fa-brain"></i> Gen AI & Cloud Integration</span>
-        </p>
-        <p>
-          Participated in the <strong> Alibaba Cloud Philippines AI Hackathon 2025 </strong>, building intelligent cloud-native solutions and leveraging advanced AI models to solve real-world engineering challenges.
-        </p>
-        
-        <a href="https://www.linkedin.com/posts/paulo-mendoza-game-dev_alibabacloudhackathon-aiforward-activity-7397189793996189697-Jkoa?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjnLb0BjhLU48hq1GnmiL7e1903h9eIoGI" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="btn btn-secondary btn-sm">
-          <i class="fab fa-linkedin"></i> View Post on LinkedIn <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-
+  <div class="intro-text">
+  <p>AI Developer.</p>
   </div>
-</section>
 
+  <section class="section">
+  <h2>My Resume</h2>
+  <embed src="Paulo-Mendoza-Resume.pdf" type="application/pdf" title="Paulo Mendoza Resume" />
+  <p>If the resume doesn’t load, <a href="Paulo-Mendoza-Resume.pdf" download>click here to download the PDF</a>.</p>
 
+  <a href="Paulo-Mendoza-Resume.pdf" download class="download-btn">Download Resume PDF</a>
+  </section>
 
+  <section class="section">
+    <h2>My Projects</h2>
 
-  <!-- Contact & Footer Section -->
-  <footer class="footer-section" id="contact">
-    <div class="glass-card footer-card">
-      <h2>Let's Connect</h2>
-      <p>I’m open to full-time roles and collaborations as an <strong>AI Developer</strong> or <strong>Data Scientist</strong>.</p>
-      
-      <div class="social-links">
-        <a href="mailto:paulomendoza1432@gmail.com" class="social-btn" aria-label="Email">
+    <div class="project">
+      <h3>Project 8: InstantRX – Just Say It!</h3>
+      <p>The system leverages Qwen AI and Alibaba Cloud’s elastic infrastructure to process spoken input. It converts voice instructions into properly formatted, ready-to-issue prescriptions, ensuring compliance with medical standards and minimizing human error.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/6YC2QqGi5no" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Project 7: NASA Bioscience Chatbot</h3>
+      <p>The chatbot uses LangChain, OpenAI API, and a Retrieval-Augmented Generation (RAG) system. It searches a curated dataset of 608 full-text NASA Space Biology publications, retrieves relevant information, and generates accurate, citation-backed responses—all within an interactive Streamlit interface.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/feFimLA16OY" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Project 6: A.I. Image Generator</h3>
+      <p>The A.I. Image Generator is built using React for the frontend and FastAPI for the backend, leveraging Stable Diffusion as the core model. In the first part, users can generate images from text prompts (text-to-image). The second part introduces an interactive brush tool, allowing users to draw directly on the generated image. Finally, in the third part, users can provide a new prompt to edit only the painted areas while preserving the rest of the image unchanged, enabling precise and creative control over image modifications.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/8jLATxaVkT0" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Project 5: Princess Cruise Lines - A.I. Assistant</h3>
+      <p>Created a multi-agent, multi-tool AI system using LangChain and LangGraph, powered by OpenAI. The system features text-to-speech and speech-to-text capabilities using OpenAI models. It includes functionality to add or remove reservations, and it actively tracks token usage and associated OpenAI API costs. A React-based front-end ensures a user-friendly experience, while a FastAPI backend handles chatbot responses and business logic. The application is hosted on AWS for scalability and reliability.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Hu5XuXgEx1g" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Project 4: AI Agent Creator</h3>
+      <p>This project was developed during my On-the-Job Training (OJT) at Lightweight Solutions, as part of their Research and Development (R&D) initiatives. I built a multi-agent AI chatbot using Streamlit, LangChain, and LangGraph. The system started with a locally hosted LLM and was later upgraded by integrating the ChatGPT API for better performance. It features specialized agents for document ingestion, retrieval-augmented generation (RAG) search, and contextual question answering.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/LY3f-NUtTx8" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Project 3: AlgSat</h3>
+      <p>AlgSat was developed as part of my final project for my Computer Engineering degree, in collaboration with the Laguna Lake Development Authority (LLDA). It is a web application that features a digital twin of Laguna Lake, designed to visualize estimated water quality parameters and algal bloom coverage. The system uses deep learning models trained on high-resolution satellite imagery to achieve enhanced spatial and temporal resolution for environmental monitoring, and also provides an action plan depending on the results.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/eZuUhFej09k" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Project 2: Exercise Posture AI App</h3>
+      <p>This Exercise Posture AI App was developed as the final project for the Data Science track, a set of three elective courses in my Computer Engineering degree. Built in Unity, the application uses real-time pose detection through computer vision to analyze workout posture. It provides instant feedback to help users correct their form and maintain proper exercise technique during workouts.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/_SPXa0uFGiU" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="project">
+      <h3>Project 1: Quantum Circuit Simulator</h3>
+      <p>This Quantum Circuit Simulator was developed as the final project for my Computer Engineering course on Emerging Technologies, which focused on Quantum Computing. It features a Unity-based frontend connected to a Python backend powered by Qiskit, enabling real-time simulation of quantum circuits. The simulator also includes a sandbox mode where users can interactively design and test custom quantum logic gates and circuits.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/VIv7oZNR510" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background-color: #f0f0f0; padding: 30px 20px; text-align: center; color: #333;">
+    <p>I’m open to job positions or collaborations as a AI Developer or Data Scientist. Feel free to reach out!</p>
+
+    <ul style="list-style: none; padding: 0; margin: 20px 0; display: flex; justify-content: center; gap: 15px;">
+      <!-- Email -->
+      <li>
+        <a href="mailto:paulomendoza1432@gmail.com" class="icon"
+          style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; background: #6c757d; color: white; line-height: 40px; text-align: center; font-size: 18px;">
           <i class="fas fa-envelope"></i>
         </a>
-        <a href="https://www.linkedin.com/in/paulo-mendoza-game-dev/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+      </li>
+
+      <!-- LinkedIn -->
+      <li>
+        <a href="https://www.linkedin.com/in/paulo-mendoza-game-dev/" target="_blank" class="icon"
+          style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; background: #0A66C2; color: white; line-height: 40px; text-align: center; font-size: 18px;">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://github.com/Abyza/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+      </li>
+
+      <!-- GitHub -->
+      <li>
+        <a href="https://github.com/Abyza/" target="_blank" class="icon"
+          style="display: inline-block; width: 40px; height: 40px; border-radius: 50%; background: #333; color: white; line-height: 40px; text-align: center; font-size: 18px;">
           <i class="fab fa-github"></i>
         </a>
-      </div>
+      </li>
+    </ul>
 
-      <div class="contact-details">
-        <p><i class="fas fa-phone"></i> <a href="tel:+639152776896">+63 915-277-6896</a></p>
-        <p><i class="fas fa-at"></i> <a href="mailto:paulomendoza1432@gmail.com">paulomendoza1432@gmail.com</a></p>
-      </div>
+    <p>Mobile: <a href="tel:+639152776896">+63 915-277-6896</a></p>
+    <p>Email: <a href="mailto:paulomendoza1432@gmail.com">paulomendoza1432@gmail.com</a></p>
 
-      <div class="copyright">
-        <p>&copy; Designed & Built by Paulo Mendoza</p>
-      </div>
-    </div>
+    <p style="margin-top: 20px; font-size: 14px;">&copy; Made by Paulo Mendoza</p>
   </footer>
 
   <script src="assets/banner-rotator.js"></script>
   <script src="assets/typing-effect.js"></script>
 
 </body>
+
 </html>
+
