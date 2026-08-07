@@ -1,99 +1,189 @@
-body {
-  font-family: 'Inter', sans-serif;
+/* ==========================================================================
+   Responsive Glassmorphism UI Theme
+   Author: Paulo Mendoza Portfolio
+   ========================================================================== */
+
+:root {
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --bg-dark: #080f1e;                   /* Rich deep navy blue */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(234, 179, 8, 0.2);/* Subtle warm gold glass border */
+  --glass-hover: rgba(255, 255, 255, 0.09);
+  
+  /* Brand Glow Colors */
+  --primary-glow: #1d4ed8;               /* Vibrant Royal Blue */
+  --accent-glow: #eab308;                /* Glowing Amber / Gold */
+  --gold-accent: #fde047;                /* Bright Highlight Gold */
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --card-radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #fdfdfd;
-  color: #333;
 }
 
-.section {
-  max-width: 900px;
-  margin: 10px auto 0;
-  padding: 20px;
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
-.section h2 {
-  margin-top: 0px;
+body {
+  background-color: #060b19 !important; /* Deepest midnight navy */
+  color: #f8fafc;
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  color: #222;
+/* 2. Direct Background Gradient Glows (Replaces Violet) */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.45) 0%, rgba(6, 11, 25, 0) 70%); /* Royal Blue Glow */
+  z-index: -2;
+  pointer-events: none;
 }
 
-h2 {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 20px;
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -10%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(234, 179, 8, 0.35) 0%, rgba(6, 11, 25, 0) 70%); /* Warm Gold Glow */
+  z-index: -2;
+  pointer-events: none;
 }
 
-embed {
-  width: 100%;
-  height: 600px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  display: block;
-  margin: 0 auto 20px;
+
+/* Background Ambient Glow Spheres */
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(110px);
+  z-index: -1;
+  opacity: 0.35;
+  animation: float 18s ease-in-out infinite alternate;
 }
 
-.download-btn {
-  display: block;
+/* 3. If you use .blob elements in HTML, update their direct backgrounds */
+.blob-1 {
+  background: #1d4ed8 !important; /* Royal Blue */
+  opacity: 0.35 !important;
+}
+
+.blob-2 {
+  background: #eab308 !important; /* Warm Gold */
+  opacity: 0.30 !important;
+}
+
+.blob-3 {
+  background: #0284c7 !important; /* Accent Light Blue */
+  opacity: 0.25 !important;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, 80px) scale(1.1); }
+}
+
+
+
+/* Glass Navigation Bar */
+.glass-nav {
+  position: sticky;
+  top: 15px;
+  z-index: 1000;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 12px 24px;
-  font-size: 16px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  padding: 12px 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-main);
   text-decoration: none;
-  text-align: center;
-  width: fit-content;
 }
 
-.download-btn:hover {
-  background-color: #0056b3;
+.logo span {
+  color: var(--gold-accent);
 }
 
-.project {
-  background-color: #ffffff;
-  padding: 20px;
-  margin-top: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
-.video-container {
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+/* Layout Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  max-width: 1200px;
+  margin: 30px auto 60px;
+  padding: 0 20px;
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  padding: 30px;
+  align-items: center;
+}
+
+.hero-image-wrapper {
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  margin-top: 10px;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-}
-
-.banner-container {
-  position: relative;
-  width: 100%;
-  height: 250px;
-  background-color: black; /* fill empty space with black */
+  height: 320px;
+  border-radius: 16px;
   overflow: hidden;
-  border-bottom: 1px solid #ddd;
 }
 
 .banner {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* ensures the image is fully shown */
-  display: block;
-  background-color: black;
-  transition: opacity 1s ease-in-out;
+  object-fit: cover;
 }
 
 .banner-overlay {
@@ -102,102 +192,1162 @@ embed {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1;
+  background: linear-gradient(180deg, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.7) 100%);
 }
 
-.banner-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white; /* 👈 this makes the text white */
-  text-align: center;
-  z-index: 2;
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.banner-text h1,
-.banner-text p {
-  color: white; /* 👈 makes both title and paragraph white */
-
-  
+.badge {
+  background: rgba(234, 179, 8, 0.12);
+  color: var(--gold-accent);
+  border: 1px solid rgba(234, 179, 8, 0.3);
 }
 
-.banner-text h1 {
-  font-size: 40px;
-  font-weight: 700;
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-.banner-text p {
-  font-size: 18px;
-  font-weight: 400;
-  margin: 0;
-  font-family: 'Courier New', Courier, monospace; /* optional for typing effect */
-  white-space: nowrap;
+.subtitle {
+  color: var(--gold-accent);
 }
 
 .cursor {
-  display: inline-block;
-  width: auto;
-  animation: blink 0.7s steps(1) infinite;
-  color: white;
+  animation: blink 1s step-end infinite;
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.bio {
+  color: var(--text-muted);
+  font-size: 1rem;
 }
 
-.intro-text {
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+/* Blue & Gold Primary Action Button */
+.btn-primary {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  color: #ffffff;
+  border: 1px solid rgba(254, 240, 138, 0.3);
+  box-shadow: 0 4px 20px rgba(29, 78, 216, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 24px rgba(234, 179, 8, 0.4); /* Glowing Gold hover shadow */
+}
+
+
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Section Header */
+.section-header {
   text-align: center;
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 0;
-  padding: 10px 20px;
+  margin-bottom: 40px;
 }
 
+.section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
 
+.section-header p {
+  color: var(--text-muted);
+}
+
+/* Project Grid & Cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  background: var(--glass-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Fluid Responsive Video Container */
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
   height: 0;
-  overflow: hidden;
-  margin-top: 10px;
   background-color: #000;
-  cursor: pointer;
+  border-bottom: 1px solid var(--glass-border);
 }
 
-.video-container iframe,
-.video-thumb {
+.video-container iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  border: none;
 }
 
-.play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 0, 0, 0.85);
-  color: #fff;
-  border: none;
+.project-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Tags in Gold/Blue Tint */
+.tag {
+  background: rgba(234, 179, 8, 0.08);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  color: #fef08a;
+}
+
+.project-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Footer Section */
+.footer-section {
+  max-width: 1200px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
+}
+
+.footer-card {
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-btn {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
-  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 4px; /* Center play symbol */
-  transition: transform 0.2s ease, background 0.2s ease;
-  z-index: 2;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-.video-container:hover .play-btn {
-  background: rgba(255, 0, 0, 1);
-  transform: translate(-50%, -50%) scale(1.1);
+.social-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
 }
+
+.contact-details p {
+  margin: 5px 0;
+  color: var(--text-muted);
+}
+
+.contact-details a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  color: #38bdf8;
+}
+
+.copyright {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--glass-border);
+  padding-top: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-image-wrapper {
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .glass-nav {
+    padding: 10px 18px;
+  }
+}
+
+
+/* ==========================================================================
+   Highlights & Speaking Glass Cards
+   ========================================================================== */
+
+/* Embedded Event Card (Hero Option 1) */
+.event-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  border-radius: 14px;
+  margin: 10px 0;
+  backdrop-filter: blur(10px);
+}
+
+.event-icon {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.event-info h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.event-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.event-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #38bdf8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 6px;
+  transition: gap 0.2s ease;
+}
+
+.event-link:hover {
+  gap: 10px;
+  text-decoration: underline;
+}
+
+/* Standalone Highlight Banner (Option 2) */
+.highlight-banner {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid #38bdf8;
+}
+
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(139, 92, 246, 0.2);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.highlight-body h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.highlight-body p {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================================================
+   Achievements & Imagine Cup Highlight Glass Card
+   ========================================================================== */
+
+#highlights {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.highlight-banner {
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid #38bdf8;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(56, 189, 248, 0.05) 100%);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.highlight-banner:hover {
+  transform: translateY(-4px);
+  border-left-color: #8b5cf6;
+  box-shadow: 0 12px 40px rgba(56, 189, 248, 0.15);
+}
+
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(234, 179, 8, 0.15);
+  color: #fde047;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.highlight-body h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.highlight-meta {
+  font-size: 0.9rem;
+  color: #38bdf8;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.highlight-body p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+}
+
+/* Container layout for highlight cards */
+.highlights-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Blue to Gold hover styling for all highlight cards */
+#highlights .glass-card,
+.highlight-banner {
+  border-left: 4px solid #1d4ed8 !important; /* Royal Blue */
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#highlights .glass-card:hover,
+.highlight-banner:hover {
+  border-left-color: #eab308 !important; /* Warm Gold */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(234, 179, 8, 0.25) !important;
+}
+
+/* Badge styling variations for events and hackathons */
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(234, 179, 8, 0.12);
+  color: #fde047;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.highlight-badge.badge-event {
+  background: rgba(29, 78, 216, 0.15);
+  color: #60a5fa;
+  border-color: rgba(29, 78, 216, 0.3);
+}
+
+.highlight-badge.badge-hackathon {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+/* ==========================================================================
+   Responsive Glassmorphism UI Theme
+   Author: Paulo Mendoza Portfolio
+   ========================================================================== */
+
+:root {
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --bg-dark: #090d16;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-hover: rgba(255, 255, 255, 0.09);
+  --primary-glow: #3b82f6;
+  --accent-glow: #8b5cf6;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --card-radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Background Animated Blobs */
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.35;
+  animation: float 18s ease-in-out infinite alternate;
+}
+
+.blob-1 {
+  width: 450px;
+  height: 450px;
+  background: var(--primary-glow);
+  top: -100px;
+  left: -100px;
+}
+
+.blob-2 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent-glow);
+  bottom: 10%;
+  right: -100px;
+  animation-delay: -5s;
+}
+
+.blob-3 {
+  width: 350px;
+  height: 350px;
+  background: #06b6d4;
+  top: 45%;
+  left: 20%;
+  animation-delay: -10s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, 80px) scale(1.1); }
+}
+
+/* Glassmorphism Common Base Class */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--card-radius);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+#highlights .glass-card,
+.highlight-banner {
+  border-left: 4px solid #1d4ed8 !important; /* Royal Blue left border */
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover state: switches ONLY this card's left border to Gold */
+#highlights .glass-card:hover,
+.highlight-banner:hover {
+  border-left-color: #eab308 !important; /* Warm Gold left border on hover */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(234, 179, 8, 0.25) !important; /* Gold glow */
+}
+
+
+/* Glass Navigation Bar */
+.glass-nav {
+  position: sticky;
+  top: 15px;
+  z-index: 1000;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  padding: 12px 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.logo span {
+  color: #38bdf8;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+/* Layout Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  max-width: 1200px;
+  margin: 30px auto 60px;
+  padding: 0 20px;
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  padding: 30px;
+  align-items: center;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.7) 100%);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.bio {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.section-header p {
+  color: var(--text-muted);
+}
+
+/* Project Grid & Cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  background: var(--glass-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Fluid Responsive Video Container */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  background-color: #000;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.project-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: #93c5fd;
+  font-weight: 500;
+}
+
+.project-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Footer Section */
+.footer-section {
+  max-width: 1200px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
+}
+
+.footer-card {
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.social-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+}
+
+.contact-details p {
+  margin: 5px 0;
+  color: var(--text-muted);
+}
+
+.contact-details a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  color: #38bdf8;
+}
+
+.copyright {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--glass-border);
+  padding-top: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-image-wrapper {
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .glass-nav {
+    padding: 10px 18px;
+  }
+}
+
+
+/* ==========================================================================
+   Highlights & Speaking Glass Cards
+   ========================================================================== */
+
+/* Embedded Event Card (Hero Option 1) */
+.event-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  border-radius: 14px;
+  margin: 10px 0;
+  backdrop-filter: blur(10px);
+}
+
+.event-icon {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.event-info h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.event-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.event-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #38bdf8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 6px;
+  transition: gap 0.2s ease;
+}
+
+.event-link:hover {
+  gap: 10px;
+  text-decoration: underline;
+}
+
+/* Standalone Highlight Banner (Option 2) */
+.highlight-banner {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid #38bdf8;
+}
+
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(139, 92, 246, 0.2);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.highlight-body h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.highlight-body p {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================================================
+   Achievements & Imagine Cup Highlight Glass Card
+   ========================================================================== */
+
+#highlights {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.highlight-banner {
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid #38bdf8;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(56, 189, 248, 0.05) 100%);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.highlight-banner:hover {
+  transform: translateY(-4px);
+  border-left-color: #8b5cf6;
+  box-shadow: 0 12px 40px rgba(56, 189, 248, 0.15);
+}
+
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(234, 179, 8, 0.15);
+  color: #fde047;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.highlight-body h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.highlight-meta {
+  font-size: 0.9rem;
+  color: #38bdf8;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.highlight-body p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+}
+
+
+/* Ensure the container background is black */
+.banner-container,
+.hero-image-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  height: 320px !important;
+  max-height: 320px !important;
+  border-radius: 16px;
+  overflow: hidden !important;
+  background-color: #000000 !important; /* <--- Forces black letterboxing */
+}
+
+/* Ensure the banner image itself has a black background */
+#rotating-banner,
+.banner {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  
+  object-fit: contain !important; 
+  object-position: center !important;
+  background-color: #000000 !important; /* <--- Fills any letterbox gap with pure black */
+  
+  transition: opacity 1s ease-in-out;
+  display: block;
+}
+
+/* 3. Banner Overlay (if using standard HTML structure) */
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.6) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Mobile responsive height adjustment */
+@media (max-width: 768px) {
+  .banner-container,
+  .hero-image-wrapper {
+    height: 220px !important;
+    max-height: 220px !important;
+  }
+}
+
+
+
